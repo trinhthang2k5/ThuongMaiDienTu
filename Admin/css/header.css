@@ -1,0 +1,42 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+h2 {
+    text-transform: uppercase;
+}
+
+.content-center__header-name {
+    float: left;
+    line-height: 100px;
+}
+
+
+.content-center__cover-search {
+    float: right;
+    margin-top: 35px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.header-search {
+    width:300px;
+    height:34px;
+    background-color: white;
+    border: 0;
+}
+
+.header-button {
+    width:60px;
+    height:34px
+}
+
+.ti-search {
+    padding: 10px 25px;
+    border-top: 10px;
+    border-radius: 3px;
+    background: linear-gradient(-180deg,#f53d2d,#f63);
+    font-size: 13px;
+}
