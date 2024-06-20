@@ -1,4 +1,4 @@
-<?php require_once '../public/tmdt_connect.php';?>
+<?php require_once 'tmdt_connect.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

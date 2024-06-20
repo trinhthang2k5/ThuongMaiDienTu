@@ -54,7 +54,7 @@
 						<p><strong>Nhãn hiệu:</strong> ${details.Ten_nhan_hieu}</p>
 						<p><strong>Mô tả:</strong> ${details.Mo_ta}</p>
 						<p><strong>Thông tin:</strong> ${details.Thong_tin}</p>
-						<p><strong>Giá tiền:</strong> ${details.Gia_tien}</p>
+						<p><strong>Giá tiền:</strong> ${details.Gia_ban}</p>
 						<p><strong>Hình ảnh:</strong> ${details.Hinh_anh}</p>
 						<p><strong>Số lượng:</strong> ${details.So_luong}</p>
 						<p><strong>Ngày cập nhập:</strong> ${details.Ngay_cap_nhap}</p>
@@ -96,18 +96,18 @@
 					$Ten_sp = $_POST["txtTen_sp"];
 					$Mo_ta = $_POST["txtMo_ta"];
 					$Thong_tin = $_POST["txtThong_tin"];
-					$Gia_tien = $_POST["txtGia_tien"];
+					$Gia_ban = $_POST["txtGia_ban"];
 					$So_luong = $_POST["txtSo_luong"];
 					$Ten_nhan_hieu = $_POST["txtTen_nhan_hieu"];
 					$Trang_thai = isset($_POST["chkTrang_thai"]) ? 1 : 0;
 
 					if ($updateID != 0) {
 						$sql = "UPDATE san_pham SET `MaLSP`='$idcat', Ten_sp='$Ten_sp', Mo_ta='$Mo_ta', Thong_tin='$Thong_tin',
-								Gia_tien=$Gia_tien, So_luong=$So_luong, Ten_nhan_hieu='$Ten_nhan_hieu', Trang_thai=$Trang_thai 
+								Gia_ban=$Gia_ban, So_luong=$So_luong, Ten_nhan_hieu='$Ten_nhan_hieu', Trang_thai=$Trang_thai 
 								WHERE MaSP=$updateID";
 					} else {
-						$sql = "INSERT INTO san_pham (MaLSP, Ten_sp, Mo_ta, Thong_tin, Gia_tien, So_luong, Ten_nhan_hieu, Trang_thai)
-								VALUES ('$idcat', '$Ten_sp', '$Mo_ta', '$Thong_tin', $Gia_tien, $So_luong, '$Ten_nhan_hieu', $Trang_thai)";
+						$sql = "INSERT INTO san_pham (MaLSP, Ten_sp, Mo_ta, Thong_tin, Gia_ban, So_luong, Ten_nhan_hieu, Trang_thai)
+								VALUES ('$idcat', '$Ten_sp', '$Mo_ta', '$Thong_tin', $Gia_ban, $So_luong, '$Ten_nhan_hieu', $Trang_thai)";
 					}
 
 					if (mysqli_query($tmdtconn, $sql)) {
@@ -144,7 +144,7 @@
 			$resultCat = mysqli_query($tmdtconn, $sql); // Dữ liệu danh mục
 
 			// Load dữ liệu sản phẩm theo ID
-			$pID=0; $pCat=0; $pTen_sp=""; $pMo_ta=""; $pThong_tin=""; $pGia_tien=0; $pHinh_anh=""; $pNgay_cap_nhat=""; $pTrang_thai=true; $pTen_nhan_hieu="";
+			$pID=0; $pCat=0; $pTen_sp=""; $pMo_ta=""; $pThong_tin=""; $pGia_ban=0; $pHinh_anh=""; $pNgay_cap_nhat=""; $pTrang_thai=true; $pTen_nhan_hieu="";
 			if (isset($_GET["prdid"])) {
 				$sql = "SELECT * FROM `san_pham` WHERE MaSP = " . $_GET["prdid"];
 
@@ -157,7 +157,7 @@
 						$pCat = $row["MaLSP"];
 						$pMo_ta = $row["Mo_ta"];
 						$pThong_tin = $row["Thong_tin"];
-						$pGia_tien = $row["Gia_tien"];
+						$pGia_ban = $row["Gia_ban"];
 						$pHinh_anh = $row["Hinh_anh"];
 						$pSo_luong = $row["So_luong"];
 						$pTen_nhan_hieu = $row["Ten_nhan_hieu"];
@@ -185,9 +185,9 @@
 							</div>
 
 							<div class="mb-3 mt-3" style="width:200px; float:left; box-sizing:border-box; margin:0 30px">
-								<label for="txtGia_tien" class="form-label">Giá sản phẩm:</label>
-								<input type="number" class="form-control" id="txtGia_tien" placeholder="Nhập giá tiền"
-									name="txtGia_tien" min="0" step="1" value="<?php echo $pGia_tien?>">
+								<label for="txtGia_ban" class="form-label">Giá sản phẩm:</label>
+								<input type="number" class="form-control" id="txtGia_ban" placeholder="Nhập giá tiền"
+									name="txtGia_ban" min="0" step="1" value="<?php echo $pGia_ban?>">
 							</div>
 
 							<div class="container mt-3" style="width:225px; float:right; box-sizing:border-box; margin:0 177px 0 0">
@@ -225,7 +225,7 @@
 								<?php
 								if (!empty($pHinh_anh)) {
 									?>
-									<img width="200" height="200" src='<?php echo "image/" . $pHinh_anh ?>' alt="lỗi ">
+									<img width="200" height="200" src='<?php echo "../public/images/" . $pHinh_anh ?>' alt="lỗi ">
 								<?php }?>
 								<input type="file" name="fileToUpload" id="fileToUpload">
 							</div>
@@ -317,12 +317,12 @@
 							<td><?php echo $row["Ten_loai"] ?></td>
 							<td><?php echo $row["Ten_sp"] ?></td>
 							<td><?php      
-							 $price = number_format($row["Gia_tien"], 0, ',', '.'); // Số thập phân là 0, dấu phân cách hàng nghìn là "," và dấu phân cách thập phân là "."
+							 $price = number_format($row["Gia_ban"], 0, ',', '.'); // Số thập phân là 0, dấu phân cách hàng nghìn là "," và dấu phân cách thập phân là "."
 
 							// Hiển thị giá tiền với định dạng VND
 							echo "<div>" . $price . " VND</div>";
 							?></td>
-							<td style="text-align: center"><?php echo "<img width='50' height='50' src='image/".$row["Hinh_anh"]."' alt='Lỗi hiển thị ảnh'>"; ?> </td> 
+							<td style="text-align: center"><?php echo "<img width='50' height='50' src='../public/images/".$row["Hinh_anh"]."' alt='Lỗi hiển thị ảnh'>"; ?> </td> 
 						
 							<td><?php echo $row["So_luong"] ?></td>
 							<?php 

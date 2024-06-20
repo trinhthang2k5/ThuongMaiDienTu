@@ -5,8 +5,8 @@
 
 header {
 	width: 100%;
-	height: 110px;
-	background: linear-gradient(-180deg,#f53d2d,#f63);
+	height: 150px;
+	background-color: #ee4d2d;
 }
 
 .content-center{
@@ -21,14 +21,21 @@ header {
 	border-left: 1px solid #ebebeb;
 	border-right: 1px solid #ebebeb;
 }
-/* 
+
+.content-center-log{
+	width: 1200px;	
+	height: 600px;
+	margin: 0 auto;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
 footer{
 	width: 100%;
-	bottom: 0;
 	min-height: 200px;
-	background-color: rgb(9, 74, 214);
+	background-color: #ee4d2d;
 	color: white;
-} */
+}
 
 .no-list-style{
 	list-style: none;
@@ -60,15 +67,15 @@ footer{
 	margin-top: 5px;
 }
 
-.product-title{
-	width: 300px;
-	height: 400px;
-	margin-left: 10px;
-	margin-bottom: 10px;
-	padding: 5px;
+.San_pham-title{
+	width: 310px;
+	height: 500px;
+	margin-left: 0px;
+	margin-bottom:0px;
+	padding: 6px;
 	float: left;
 	text-align: center;
-	border: 1px solid #ebebeb;
+	border: 2px solid #ebebeb;
 	box-sizing: border-box;
 	overflow: hidden;
 }
@@ -83,12 +90,12 @@ footer{
 .box-price{
 	width: 100%;
 	font-weight: bold;
-	padding: 10px; 
+	margin-bottom: 10px;
 	font-size: 1.5em;
 	color: white;
 	background-color: #243a76;
 	box-sizing: border-box;
-	float: left;
+	float: bottom;
 }
 
 .error{
@@ -98,9 +105,9 @@ footer{
 }
 
 iframe {
-    display: block;      
-    border: none;         
-    height: 100vh;        
+    display: block;       /* iframes are inline by default */
+    border: none;         /* Reset default border */
+    height: 100vh;        /* Viewport-relative units */
     width: 100vw;
 }
 
@@ -120,7 +127,7 @@ header a{
 	text-decoration: none;
 }
 
-.product-detail{
+.Thongtin_sp{
 	width: 100%;
 	border: 1px solid #ebebeb;
 	padding: 10px;
@@ -130,14 +137,18 @@ header a{
 }
 
 .box-buy{
-	width: 100%;
-	float: left;
-	background-color: orange;
+	
+	width: 30%;
+	margin-top: 5px;
+	float:none;
+	background-color: rgb(255, 51, 0);
 	font-weight: bold;
 	padding: 10px; 
 	font-size: 1.5em;
 	color: white;
 	box-sizing: border-box;
+	border-radius: 20px;
+	border-color: blueviolet;
 }
 
 .box-num-count{
@@ -161,14 +172,15 @@ header a{
 li{
 	display: inline-block;
 }
+/*CSS để hiển thị trang sản phẩm dưới slide*/
 .mainproduct {
 	display: flex;
     overflow: hidden;
     box-sizing: border-box;
-    padding-left: 120px;
+    padding-left: 1px;
 }
 a{
-	margin-right: 5px;
+	margin-right: 5px;/*Tạo khoảng cách giữa 2 thẻ a*/
 }
 .box-cart{
 	height: 30px;

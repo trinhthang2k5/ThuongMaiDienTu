@@ -10,7 +10,7 @@
 <body>
 <div class="content-center" style="color: white">	
 	<div class="content-center__header-name">
-		<h2 style="margin-top: 35px;margin-left:100px">Hệ thống quản lý</h2>
+		<h1 style="margin-top: 35px;margin-left:100px">Hệ thống quản lý</h1>
 	</div>
 </div>
 </body>

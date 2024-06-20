@@ -1,0 +1,18 @@
+.pagination {
+    margin-top: 20px; /* Khoảng cách giữa danh sách sản phẩm và phân trang */
+    text-align: center; /* Căn giữa nội dung phân trang */
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 3px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #333;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #e9e9e9;
+}

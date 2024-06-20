@@ -1,0 +1,34 @@
+#slider{
+    padding-bottom: 36px;
+    border-bottom: 0px solid #000; 
+    overflow: hidden;
+   }
+   .slider-scoroll{
+       max-width:100%;
+       transition: 0.3s;
+       display: flex;
+   }
+   .slider-scoroll img{
+       max-width: 100%;
+       border-radius: 10px;
+       margin: 3px;
+       top:0px;
+       left: 0px;
+   }
+   .dot-container{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       margin-top: 10px; 
+   }
+   .dot{
+       width: 16px; /* Điều chỉnh kích thước của dot */
+       height: 16px; /* Điều chỉnh kích thước của dot */
+       background-color: #bbb; /* Màu sắc của dot */
+       border-radius: 50%; /* Để dot trở thành hình tròn */
+       margin: 0 5px; /* Điều chỉnh khoảng cách*/
+   }
+   .active {
+       background-color: rgb(243, 10, 10); /* Màu sắc của dot hiện tại */
+   }
+   

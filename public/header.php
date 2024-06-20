@@ -12,17 +12,17 @@
 <body>
 	<div class="content-center" style="color: white">
 	<div class="menu">
-		<li><a href="trangchu.php">TRANG CHỦ</a>|</li>
-		<li><a href="">TỔNG ĐÀI HỖ TRỢ</a>|</li>
-		<li><a href="">CHÍNH SÁCH BÁN HÀNG</a>|</li>
-		<li><a href="">KHUYẾN MÃI</a>|</li>
-		<li><a href="">TRUNG TÂM DỊCH VỤ</a>|</li>
-		<li><a href="">TIN TỨC</a>|</li>
-		<a href="customer_register.php"><i class="fa-thin fa-user"></i> ĐĂNG KÝ </a>|	
+		<li><a href="trangchu.php">TRANG CHỦ </a></li>
+		<li><a href="gioithieu.php">GIỚI THIỆU </a></li>
+		<li><a href="Tongdaihotro.php">TỔNG ĐÀI HỖ TRỢ </a></li>
+		<li><a href="Chinhsachbanhang.php">CHÍNH SÁCH BÁN HÀNG </a></li>
+		<li><a href="Trungtamdichvu.php">TRUNG TÂM DỊCH VỤ </a></li>
+		<li><a href="">TIN TỨC</a></li>
+		<a href="customer_register.php"><i class="fa-thin fa-user"></i> ĐĂNG KÝ </a>	
 		<a href="customer_login.php">ĐĂNG NHẬP</a>
 	</div>
 	<!-- Mở kết nối tới csdl -->
-	<?php include_once 'bk_connect.php';?>
+	<?php include_once 'tmdt_connect.php';?>
 	
 	<div style="width: 60%; float: left; line-height: 100px">
 		<h1 style="text-transform: uppercase;"><a href="index.php">Hệ thống bán hàng trực tuyến</a></h1>
@@ -37,13 +37,13 @@
 		<!-- Tài khoản đăng nhập / giỏ hàng -->
 		<div style="width: 100%;float: right; height: 50px; padding: 0px; margin: 0px; line-height: 50px; text-align: right; vertical-align: middle;">
 			<a style="float: right" href="shopping_cart.php"><img src="public/images/ic_cart.png" alt="Giỏ hàng"></a>
-			<?php
-				session_start();
-				if (isset($_SESSION["username"])) {
-					echo "Xin chào " . $_SESSION["username"] . " (<a href='public/logout.php'>Thoát</a>)";	
-				} else {		
-			?>
-			<?php } ?>
+                        <?php
+                        session_start();
+                        if (isset($_SESSION["username"])) {
+                            echo "Xin chào: " . $_SESSION["username"] ."";
+                            echo "<a class='log' href='public/logout.php'>Thoát</a>";
+                        }
+                        ?>
 		</div>
 	</div>
 </div>

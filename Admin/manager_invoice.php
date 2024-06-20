@@ -68,17 +68,17 @@
 					var details = JSON.parse(xhr.responseText);
 					document.getElementById('invoiceDetails').innerHTML = `
 						<p><strong>Mã hóa đơn:</strong> ${details.MaHD}</p>
-						<p><strong>Ngày tạo hóa đơn:</strong> ${details.Ngay_HD}</p>
+						<p><strong>Ngày tạo hóa đơn:</strong> ${details.Ngayxuat_HD}</p>
 						<p><strong>Tên người nhận:</strong> ${details.Hoten_nguoinhan}</p>
-						<p><strong>Địa chỉ người nhận:</strong> ${details.Diachi_nguoinhan}</p>
+						<p><strong>Địa chỉ người nhận:</strong> ${details.Dia_chi_nguoinhan}</p>
 						<p><strong>Điện thoại:</strong> ${details.Dienthoai_nguoinhan}</p>
 						<p><strong>Địa chỉ Email:</strong> ${details.Diachi_email}</p>
 						<p><strong>Ngày giao hàng:</strong> ${details.Ngay_giao_hang}</p>
 						<p><strong>Tên sản phẩm:</strong> ${details.Ten_sp}</p>
 						<p><strong>Thông tin:</strong> ${details.Thong_tin}</p>
-						<p><strong>Số lượng:</strong> ${details.So_luong_ban}</p>
+						<p><strong>Số lượng:</strong> ${details.So_luong}</p>
 						<p><strong>Phương thức thanh toán:</strong> ${details.Ten_PTTT}</p>
-						<p><strong>Phương thức vận chuyển:</strong> ${details.TenPTVC}</p>
+						<p><strong>Phương thức vận chuyển:</strong> ${details.Ten_PTVC}</p>
 						<p><strong>Thành tiền:</strong> ${details.Gia_ban}</p>
 					`;
 					var modal = new bootstrap.Modal(document.getElementById('detailsModal'));
@@ -127,10 +127,10 @@
 
 				include_once 'tmdt_connect.php';			
 				// Tải hóa đơn (all)
-				$sql = "SELECT hoa_don.MaHD, hoa_don.Hoten_nguoinhan, hoa_don.Dienthoai_nguoinhan, ct_hoa_don.So_luong_ban, ct_hoa_don.Gia_ban,
+				$sql = "SELECT hoa_don.MaHD, hoa_don.Hoten_nguoinhan, hoa_don.Dienthoai_nguoinhan, ct_hoa_don.So_luong, ct_hoa_don.Gia_ban,
 				hoa_don.Trang_thai, san_pham.Ten_sp
-				FROM `hoa_don` JOIN `ct_hoa_don` ON hoa_don.MaHD = ct_hoa_don.MaHD
-							   JOIN `san_pham` ON hoa_don.MaSP = san_pham.MaSP
+				FROM `ct_hoa_don` JOIN `hoa_don` ON hoa_don.MaHD = ct_hoa_don.MaHD
+							   	  JOIN `san_pham` ON ct_hoa_don.MaSP = san_pham.MaSP
 						LIMIT ".$offset.", 5";
 
 				$result = mysqli_query($tmdtconn, $sql); // Truy vấn
@@ -165,7 +165,7 @@
 					 	echo "<td>".$row["Ten_sp"]."</td>";
 					 	echo "<td>".$row["Hoten_nguoinhan"]."</td>";
 					 	echo "<td>".$row["Dienthoai_nguoinhan"]."</td>";
-					 	echo "<td>".$row["So_luong_ban"]."</td>"; 
+					 	echo "<td>".$row["So_luong"]."</td>"; 
 					 	echo "<td>".$row["Gia_ban"]."</td>"; 
 					 	echo "<td style='text-align:center'>";
 					 	if ($row["Trang_thai"] == 0) {
